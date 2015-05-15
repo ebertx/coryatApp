@@ -4,6 +4,10 @@
  */
 'use strict';
 
+var cats = ["1", "2", "3", "4", "5", "6"];
+var amount1 = ["200", "400", "600", "800", "1000"];
+var amount2 = ["400", "800", "1200", "1600", "2000"];
+
 var React = require('react-native');
 var {
   AppRegistry,
@@ -15,21 +19,24 @@ var {
 var coryatApp = React.createClass({
   render: function() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
+      <ScoreBox />
+    );
+  }
+});
+
+
+var ScoreBox = React.createClass({
+  render: function() {
+    return (
+      <View style={styles.scoreBox}>
+        <Text style={styles.score}>
+          200
         </Text>
       </View>
     );
   }
 });
+
 
 var styles = StyleSheet.create({
   container: {
@@ -48,6 +55,14 @@ var styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  scoreBox: {
+    color: 'blue',
+    textAlign: 'center'
+  },
+  score: {
+    color: 'white',
+    fontSize: 20
+  }
 });
 
 AppRegistry.registerComponent('coryatApp', () => coryatApp);
